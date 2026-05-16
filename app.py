@@ -53,7 +53,7 @@ if st.button("Dapatkan Bimbingan Zen"):
         with st.spinner("Menyelaraskan pikiran dan energi..."):
             try:
                 # API Key
-                genai.configure(api_key="AIzaSyAmZFYNj5T9LxwVHFIDZOmpi4131bRR5iE")
+                genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
                 model = genai.GenerativeModel('models/gemini-2.5-flash')
                 
                 # Prompt tanpa nama (Universal Mentor)
