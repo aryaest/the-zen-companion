@@ -1,5 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
+import os
 
 # 1. Setup Konfigurasi Halaman
 st.set_page_config(
@@ -53,7 +54,8 @@ if st.button("Dapatkan Bimbingan Zen"):
         with st.spinner("Menyelaraskan pikiran dan energi..."):
             try:
                 # API Key
-                genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+                api_key = os.environ.get("GEMINI_API_KEY")
+                genai.configure(api_key=api_key)
                 model = genai.GenerativeModel('models/gemini-2.5-flash')
                 
                 # Prompt tanpa nama (Universal Mentor)
